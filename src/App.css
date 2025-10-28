@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  width: 100%;
+  font-family: sans-serif;
+  background: #f7f7f7;
+}
+
+/* Navbar Base */
+.navbar {
+  background: #111;
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Desktop menu */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 6px 10px;
+  transition: 0.3s;
+}
+
+.nav-links a.active {
+  background: #00c4ff;
+  border-radius: 6px;
+}
+
+/* Desktop Login Button */
+.login-btn {
+  margin-left: 20px;
+  padding: 8px 16px;
+  background: #00c4ff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Hide mobile menu initially */
+.mobile-menu {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+/* Mobile View */
+@media (max-width: 640px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: column;
+    gap: 18px;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.95);
+    padding: 20px;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .mobile-menu.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  .navbar {
+    z-index: 1000;
+  }
+
+  .mobile-menu {
+    z-index: 999;
+  }
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+/* Page styling */
+.page {
+  min-height: calc(100vh - 70px);
+  /* Full height minus navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
